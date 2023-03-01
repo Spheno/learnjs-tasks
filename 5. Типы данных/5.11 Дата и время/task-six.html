@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function getSecondsToday() {
+
+      let now = new Date();
+      let day = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+      return Math.round((now - day) / 1000)
+
+    }
+
+    alert(getSecondsToday())
+
+  </script>
+
+</body>
+
+</html>

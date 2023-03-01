@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let date = new Date(2015, 0, 2);
+
+    function getDateAgo(date, days) {
+
+      let time = new Date(date)
+      time.setDate(date.getDate() - days)
+
+      return time.getDate()
+
+    }
+
+    alert(getDateAgo(date, 1)); // 1, (1 Jan 2015)
+    alert(getDateAgo(date, 2)); // 31, (31 Dec 2014)
+    alert(getDateAgo(date, 365)); // 2, (2 Jan 2014)
+
+  </script>
+
+</body>
+
+</html>
