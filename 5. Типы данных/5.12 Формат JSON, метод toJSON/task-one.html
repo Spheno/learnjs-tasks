@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let user = {
+      name: "Василий Иванович",
+      age: 35
+    };
+
+    let userJSON = JSON.stringify(user)
+
+    let newUser = JSON.parse(userJSON)
+
+    console.log(userJSON, newUser)
+
+  </script>
+
+</body>
+
+</html>

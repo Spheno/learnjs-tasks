@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    // Ответ: возможно, если функции а и б - возвращают общий объект, объявленный за их пределами.
+    //Тогда а и b будут ссылками на один и тот же объект. И будут равны.
+
+    let obj = { 'Объект': 'Очень красивый объект' }
+
+    function A() { return obj }
+    function B() { return obj }
+
+    let a = new A();
+    let b = new B();
+
+    alert(a == b); //Вернет true
+
+  </script>
+
+</body>
+
+</html>

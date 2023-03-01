@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let arr = [5, 3, 8, 1];
+
+    function filterRangeInPlace(array, a, b) {
+      arr = array.filter(i => (i < a || i < b))
+
+    }
+
+    filterRangeInPlace(arr, 1, 4);
+    
+    alert(arr);
+
+  </script>
+
+</body>
+
+</html>

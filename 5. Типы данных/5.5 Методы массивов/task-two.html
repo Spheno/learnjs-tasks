@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let arr = [5, 3, 8, 1];
+
+    function filterRange(arr, a, b) {
+      return arr.filter(i => (a <= i && i <= b))
+    }
+
+    let filtered = filterRange(arr, 1, 4);
+
+    alert(filtered);
+
+    alert(arr);
+
+  </script>
+
+</body>
+
+</html>

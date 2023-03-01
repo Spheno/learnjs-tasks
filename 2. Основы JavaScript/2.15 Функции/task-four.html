@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let x = +prompt('Введите число n', '');
+    let n = +prompt('Введите степень x', '');
+
+    function pow(x, n) {
+
+      let res = x;
+
+      for (let i = 1; i < n; i++) {
+        res *= x
+      }
+
+      alert(res)
+
+    }
+
+    if (n < 1 || !Number.isInteger(n)) {
+        alert('Недопустимое значение n. Допускаются только натуральные числа')
+      } else {
+        pow(x, n)
+      }
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let salaries = {
+      "John": 100,
+      "Pete": 300,
+      "Mary": 250
+    };
+
+    function topSalary(salaries) {
+
+      let highSalary = 0;
+      let highSalaryName = null;
+
+      for (let [name, salary] of Object.entries(salaries)) {
+        if (highSalary < salary) {
+          highSalary = salary;
+          highSalaryName = name;
+        }
+      }
+
+      return highSalaryName
+
+    }
+
+    alert(topSalary(salaries))
+
+  </script>
+
+</body>
+
+</html>

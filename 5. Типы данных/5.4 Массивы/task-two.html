@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    
+    // Удалите первый элемент массива и покажите его.
+    // Вставьте Рэп и Регги в начало массива.
+
+    let styles = ['Джаз', 'Блюз']
+
+    alert(styles)
+
+    styles.push('Рок-н-ролл')
+
+    alert(styles)
+
+    styles[Math.round((styles.length - 1) / 2)] = 'Классика'
+
+    alert(styles)
+
+    styles.shift()
+
+    alert(styles)
+
+    styles.unshift('Рэп', 'Регги')
+
+    alert(styles)
+
+
+
+  </script>
+
+</body>
+
+</html>

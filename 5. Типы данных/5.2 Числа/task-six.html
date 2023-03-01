@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function randomInteger() {
+
+      let min = +prompt('Введите число min', '');
+      let max = +prompt('Введите число max', '');
+
+      let result = (min - 0.5) + Math.random() * (max - min + 0.5);
+
+      return alert(Math.round(result))
+
+    }
+
+    randomInteger()
+
+  </script>
+
+</body>
+
+</html>

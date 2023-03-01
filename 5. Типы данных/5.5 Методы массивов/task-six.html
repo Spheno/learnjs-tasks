@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let calc = new Calculator;
+
+    function Calculator() {
+
+      this.action = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+      }
+
+      this.addMethod = function(name, f) {
+        this.action[name] = f;
+      }
+
+      this.calculate = function(str) {
+        let newStr = str.split(' '),
+        a = +newStr[0],
+        operator = newStr[1],
+        b = +newStr[2]
+
+        return this.action[operator](a, b)
+      }
+
+    }
+
+    alert(calc.calculate("3 + 7"));
+
+    let powerCalc = new Calculator;
+    powerCalc.addMethod("*", (a, b) => a * b);
+    powerCalc.addMethod("/", (a, b) => a / b);
+    powerCalc.addMethod("**", (a, b) => a ** b);
+
+    let result = powerCalc.calculate("2 ** 3");
+    alert(result);
+
+  </script>
+
+</body>
+
+</html>

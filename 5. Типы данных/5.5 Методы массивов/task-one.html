@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function camelize(str) {
+      return str.split("-").map((el, i) => i == 0 ? el : el[0].toUpperCase() + el.slice(1)).join('')
+    }
+
+    alert(camelize("background-color"))
+    alert(camelize("list-style-image"))
+    alert(camelize("-webkit-transition"))
+
+  </script>
+
+</body>
+
+</html>

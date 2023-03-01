@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function Calculator() {
+
+      this.read = function() {
+        this.a = +prompt('Введите число a', '0');
+        this.b = +prompt('Введите число b', '0');
+      },
+
+      this.sum = function() {
+        this.a + this.b
+      },
+
+      this.mul = function() {
+        this.a * this.b
+      }
+
+    };
+
+    let calculator = new Calculator();
+    calculator.read();
+
+    alert("Sum=" + calculator.sum());
+    alert("Mul=" + calculator.mul());
+
+  </script>
+
+</body>
+
+</html>

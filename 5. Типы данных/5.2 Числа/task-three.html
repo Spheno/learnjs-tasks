@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function readNumber() {
+      let number;
+
+      do {
+        number = prompt('Введите число', '');
+      } while (!isFinite(number));
+
+      if (number === null || number === '') {
+        return alert(null)
+      }
+
+      return alert(+number)
+
+    }
+
+    readNumber()
+
+  </script>
+
+</body>
+
+</html>

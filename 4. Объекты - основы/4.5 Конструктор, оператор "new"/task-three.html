@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function Accumulator(startingValue) {
+
+      this.value = startingValue;
+
+      this.read = function () {
+        this.num = +prompt('Введите число', '');
+        this.value += this.num;
+      }
+
+    };
+
+    let accumulator = new Accumulator(1);
+
+    accumulator.read();
+    accumulator.read();
+
+    alert(accumulator.value);
+
+  </script>
+
+</body>
+
+</html>

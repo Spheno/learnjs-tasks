@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let user = { name: "John", years: 30 };
+
+    let { name, years: age, isAdmin = false } = user;
+
+    alert(name); // John
+    alert(age); // 30
+    alert(isAdmin); // false
+
+  </script>
+
+</body>
+
+</html>

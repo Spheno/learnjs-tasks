@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let str = prompt('Введите слово', '')
+
+    function ucFirst(str) {
+      
+      if (!str) return alert(str)
+
+      let string = str[0].toUpperCase() + str.slice(1)
+
+      return alert(string)
+
+    }
+
+    ucFirst(str)
+
+  </script>
+
+</body>
+
+</html>

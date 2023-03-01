@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+    function aclean(arr) {
+      let map = new Map;
+
+      for (let el of arr) {
+        let letters = el.toLowerCase().split('').sort().join();
+        map.set(letters, el)
+      }
+      return Array.from(map.values())
+    }
+
+    alert(aclean(arr)); // "nap,teachers,ear" или "PAN,cheaters,era"
+
+  </script>
+
+</body>
+
+</html>

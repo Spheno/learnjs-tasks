@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function truncate(str, maxlength) {
+
+      if (str.length < maxlength) return alert(str)
+
+      let newString = str.slice(0, maxlength - 1) + '…';
+
+      return alert(newString)
+
+    }
+
+    truncate("Вот, что мне хотелось бы сказать на эту тему:", 20) //"Вот, что мне хотело…"
+
+    truncate("Всем привет!", 20) //"Всем привет!"
+
+
+
+  </script>
+
+</body>
+
+</html>

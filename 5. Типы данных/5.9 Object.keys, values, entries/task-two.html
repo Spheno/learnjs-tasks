@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let salaries = {
+      "John": 100,
+      "Pete": 300,
+      "Mary": 250
+    };
+
+    let user = {
+      name: 'John',
+      age: 30
+    };
+
+    function count(obj) {
+
+      return Object.keys(obj).length
+
+    }
+
+    alert(count(user)); // 2
+
+  </script>
+
+</body>
+
+</html>

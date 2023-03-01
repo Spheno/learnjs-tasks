@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function getMaxSubSum(numbers) {
+
+      let maxSubSum = 0;
+      let subtotal = 0;
+
+      for (let num of numbers) {
+
+        subtotal += num;
+
+        if (subtotal < 0) subtotal = 0;
+
+        maxSubSum = Math.max(maxSubSum, subtotal);
+
+      }
+
+      return alert(maxSubSum)
+
+    }
+
+    getMaxSubSum([-1, 2, 3, -9]) // 5 
+    getMaxSubSum([2, -1, 2, 3, -9]) // 6
+    getMaxSubSum([-1, 2, 3, -9, 11]) // 11
+    getMaxSubSum([-2, -1, 1, 2]) // 3
+    getMaxSubSum([100, -9, 2, -3, 5]) // 100
+    getMaxSubSum([1, 2, 3]) // 6 
+    getMaxSubSum([-1, -2, -3]) // 0
+
+  </script>
+
+</body>
+
+</html>
