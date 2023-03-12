@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function makeCounter() {
+      let count = 0;
+
+      function counter() {
+        return count++
+      }
+
+      counter.decrease = () => {
+        return count--
+      }
+
+      counter.set =(value) => {
+        return count = value
+      }
+
+      return counter
+
+    }
+
+    let counter = makeCounter();
+
+    alert(counter()); // 0
+    alert(counter()); // 1
+
+    counter.set(10); // установить новое значение счётчика
+
+    alert(counter()); // 10
+
+    counter.decrease(); // уменьшить значение счётчика на 1
+
+    alert(counter()); // 10 (вместо 11)
+
+  </script>
+
+</body>
+
+</html>

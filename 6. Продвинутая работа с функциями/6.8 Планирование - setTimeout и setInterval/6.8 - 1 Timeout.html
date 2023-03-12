@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    // решение setTimeout
+
+    function printNumbersWithTimeout(from, to) {
+
+      let num = from;
+
+      function print() {
+        alert(num)
+        if (num < to) {
+          setTimeout(print, 1000)
+        }
+        num++
+      }
+
+      setTimeout(print, 1000)
+
+    }
+
+    printNumbersWithTimeout(1, 5)
+
+  </script>
+
+</body>
+
+</html>

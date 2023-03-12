@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let hamster = {
+      stomach: [],
+
+      eat(food) {
+        this.stomach = [food];
+      }
+    };
+
+    let speedy = {
+      __proto__: hamster
+    };
+
+    let lazy = {
+      __proto__: hamster
+    };
+
+    // Этот хомяк нашёл еду
+    speedy.eat("apple");
+    alert(speedy.stomach); // apple
+
+    // У этого хомяка тоже есть еда. Почему? Исправьте
+    alert(lazy.stomach); // apple
+
+    //ОТВЕТ: Так происходит потому что желудок есть у хомяков и нет разницы у быстрого или у ленивого.
+    //Решается путем обычного присваивания и  записи stomach в нужного хомяка.
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function makeArmy() {
+      let shooters = [];
+
+      for (let i = 0; i < 10; i++) { // переносим объявление i внутрь цикла, чтобы она обновлялась
+        //и соотвествовала итерации, а не бралась по окончании цикла последним результатом.
+        let shooter = function () { 
+          alert(i); 
+        };
+        shooters.push(shooter);
+        i++;
+      }
+
+      return shooters;
+    }
+
+    let army = makeArmy();
+
+    army[0](); 
+    army[5](); 
+
+  </script>
+
+</body>
+
+</html>

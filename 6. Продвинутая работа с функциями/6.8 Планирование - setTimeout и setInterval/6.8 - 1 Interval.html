@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    // Решение setInterval
+
+    function printNumbers(from, to) {
+
+      let num = from;
+
+      function print() {
+        alert(num)
+        if (num == to) {
+          clearInterval(timer)
+        }
+        num++
+      }
+
+      let timer = setInterval(print, 1000)
+
+    }
+
+    printNumbers(2, 8)
+
+  </script>
+
+</body>
+
+</html>

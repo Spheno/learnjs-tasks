@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    //Решение через цикл
+
+    function sumTo(n) {
+      let sum = 0
+      for (let i = 0; i <= n; i++) {
+        sum += i;
+      }
+      return sum;
+    }
+
+    alert(sumTo(1)) //1
+    alert(sumTo(2)) //3
+    alert(sumTo(3)) // 6
+    alert(sumTo(4)) //10
+    alert(sumTo(100)) // 5050
+
+    //Решение через рекурсию
+
+    function recursionSumTo(n) {
+
+      if (n == 1) {
+        return 1
+      }
+      return n + recursionSumTo(--n)
+    }
+
+    alert(recursionSumTo(1)) //1
+    alert(recursionSumTo(2)) //3
+    alert(recursionSumTo(3)) // 6
+    alert(recursionSumTo(4)) //10
+    alert(recursionSumTo(100)) // 5050
+
+    //Решение по формуле
+
+    function formulaSumTo(n) {
+      let sum = n * (n + 1) / 2;
+      return sum;
+    }
+
+    alert(formulaSumTo(1)) //1
+    alert(formulaSumTo(2)) //3
+    alert(formulaSumTo(3)) // 6
+    alert(formulaSumTo(4)) //10
+    alert(formulaSumTo(100)) // 5050
+
+  //P.S.Какой вариант решения самый быстрый? Самый медленный? Почему?
+
+  //Ответ: Самый быстрый способ решения - через формулу. В три действие без циклических вычислений и уж тем более без трудоемкой рекурсии.
+  //Второй по скорости - цикл. Не надо запоминать стек, потому уже менее трудоемкое, чем рекурсия.
+
+  //P.P.S.Можно ли при помощи рекурсии посчитать sumTo(100000)?
+
+  //Ответ: В большинстве случаев нет.
+
+  </script>
+
+</body>
+
+</html>

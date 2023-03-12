@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let arr = [1, 2, 3, 4, 5, 6, 7];
+
+    function inBetween(from, to) {
+      return function between(x) {
+        return x >= from && to >= x;
+      }
+    }
+
+    function inArray(arr) {
+      return function isIncludes(x) {
+        return arr.includes(x);
+      }
+    }
+
+    alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
+
+    alert(arr.filter(inArray([1, 2, 10]))); // 1,2
+
+  </script>
+
+</body>
+
+</html>

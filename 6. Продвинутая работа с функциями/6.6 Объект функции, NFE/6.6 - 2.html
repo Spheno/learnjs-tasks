@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function sum(n) {
+
+      let subtotal = n;
+
+      function func(i) {
+
+        subtotal += i;
+
+        return func
+      }
+
+      func.toString = function () {
+        return subtotal;
+      }
+
+      return func
+
+    }
+
+    alert(sum(1)(2)) //3; 
+    alert(sum(1)(2)(3)) //6
+    alert(sum(5)(-1)(2)) // 6
+    alert(sum(6)(-1)(-2)(-3)) //0
+    alert(sum(0)(1)(2)(3)(4)(5)) //15
+
+  </script>
+
+</body>
+
+</html>

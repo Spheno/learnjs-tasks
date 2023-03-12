@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let list = {
+      value: 1,
+      next: {
+        value: 2,
+        next: {
+          value: 3,
+          next: {
+            value: 4,
+            next: null
+          }
+        }
+      }
+    };
+
+    // решение через рекурсию
+
+    function recursionPrintReverseList(list) {
+
+      if (list.next) {
+        recursionPrintReverseList(list.next)
+      }
+
+      alert(list.value)
+
+    }
+
+    recursionPrintReverseList(list)
+
+    // решение через цикл
+
+    function printReverseList(list) {
+      let revers = [];
+      let el = list;
+
+      while (el) {
+        revers.push(el.value);
+        el = el.next;
+      }
+
+      revers.reverse();
+
+      for (let i of revers) {
+        alert(i)
+      }
+
+    }
+
+    printReverseList(list)
+
+  </script>
+
+</body>
+
+</html>

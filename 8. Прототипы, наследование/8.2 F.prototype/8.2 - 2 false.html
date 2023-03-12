@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    //не работает
+
+    function Hamster(prop) {
+      this.prop = prop
+    }
+
+    Hamster.prototype = {};
+
+    let hamster = new Hamster('speedy')
+    let hamsterLazy = new hamster.constructor('lazy')
+
+    alert(hamsterLazy.prop)
+
+  </script>
+
+</body>
+
+</html>

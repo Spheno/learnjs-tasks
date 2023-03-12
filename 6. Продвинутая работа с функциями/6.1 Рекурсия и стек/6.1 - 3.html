@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function fib(n) {
+
+      let fib1 = 1
+      let fib2 = 1
+
+      for (let i = 3; i <= n; i++) {
+
+        let fib3 = fib1 + fib2;
+        fib1 = fib2;
+        fib2 = fib3;
+
+      }
+
+      return fib2
+
+    }
+
+    alert(fib(3)); // 2
+    alert(fib(7)); // 13
+    alert(fib(77)); // 5527939700884757
+
+  </script>
+
+</body>
+
+</html>

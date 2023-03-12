@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    function f(x) {
+      alert(x);
+    }
+
+    function delay(f, ms) {
+
+      function timeout() {
+        setTimeout(() => f.apply(this, arguments), ms)
+      };
+
+      return timeout
+
+    }
+
+    let f1000 = delay(f, 1000);
+    let f1500 = delay(f, 1500);
+
+    f1000("test"); // показывает "test" после 1000 мс
+    f1500("test"); // показывает "test" после 1500 мс
+
+  </script>
+
+</body>
+
+</html>

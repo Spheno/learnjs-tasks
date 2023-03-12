@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    let head = {
+      glasses: 1
+    };
+
+    let table = {
+      __proto__: head,
+      pen: 3
+    };
+
+    let bed = {
+      __proto__: table,
+      sheet: 1,
+      pillow: 2
+    };
+
+    let pockets = {
+      __proto__: bed,
+      money: 2000
+    };
+
+    alert(pockets.pen) //3
+    alert(bed.glasses) //1
+
+    // Ответьте на вопрос: как быстрее получить значение glasses – через pockets.glasses или через head.glasses?
+    // При необходимости составьте цепочки поиска и сравните их.
+
+    //ОТВЕТ: одинаково быстро.
+
+  </script>
+
+</body>
+
+</html>
