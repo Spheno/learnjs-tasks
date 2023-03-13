@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+  <div id="container"></div>
+
+  <script>
+    'use strict';
+
+    let data = {
+      "Рыбы": {
+        "форель": {},
+        "лосось": {}
+      },
+
+      "Деревья": {
+        "Огромные": {
+          "секвойя": {},
+          "дуб": {}
+        },
+        "Цветковые": {
+          "яблоня": {},
+          "магнолия": {}
+        }
+      }
+    };
+
+    let container = document.getElementById('container');
+
+    function createTree(container, data) {
+      container.append(createDOM(data))
+    }
+
+    function createDOM(data) {
+
+      if (!Object.keys(data).length) {
+        return
+      }
+
+      let ul = document.createElement('ul');
+
+      for (let key in data) {
+        let li = document.createElement('li');
+        li.innerHTML = key;
+
+        let children = createDOM(data[key])
+
+        if (children) {
+          li.append(children)
+        }
+
+        ul.append(li)
+      }
+      return ul
+    }
+
+    createTree(container, data)
+
+  </script>
+
+</body>
+
+</html>

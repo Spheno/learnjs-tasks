@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+  <div class="clock">
+    <span class="hour" style="color: blueviolet">hh</span>:
+    <span class="minutes" style="color: deeppink">mm</span>:
+    <spah class="seconds" style="color: yellowgreen">ss</spah>
+  </div>
+
+  <input type="button" onclick="start()" value="Старт">
+  <input type="button" onclick="stop()" value="Стоп">
+
+  <script>
+    'use strict';
+
+    function clock() {
+      let clock = document.querySelector('.clock');
+      let date = new Date();
+      let hour = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+
+      if (hour < 10) {
+        hour = '0' + hour;
+      }
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
+
+      clock.children[0].innerHTML = hour;
+      clock.children[1].innerHTML = minutes;
+      clock.children[2].innerHTML = seconds;
+
+    }
+
+    let timer;
+
+    function start() {
+      timer = setInterval(clock, 1000)
+      clock()
+    }
+
+    function stop() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+  </script>
+
+</body>
+
+</html>

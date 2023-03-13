@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+  <script>
+    'use strict';
+
+    function showNotification({ top = 0, right = 0, html, className }) {
+
+      let element = document.createElement('div');
+      element.className = "element";
+      if (className) {
+        element.classList.add(className)
+      }
+
+      element.style.top = top + 'px';
+      element.style.right = right + 'px';
+      element.innerHTML = html;
+      document.body.append(element);
+
+      setTimeout(() => element.remove(), 1500)
+    }
+
+    showNotification({ top: 10, left: 10, html: 'Hello', className: 'welcome' })
+
+  </script>
+
+</body>
+
+</html>
