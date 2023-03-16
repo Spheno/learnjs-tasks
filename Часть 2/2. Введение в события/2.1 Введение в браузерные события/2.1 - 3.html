@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+  <input type="button" id="hider" value="Нажмите" />
+
+  <script>
+    'use strict';
+
+    const button = document.querySelector('#hider');
+
+    button.addEventListener("click", () => alert("1"));
+
+    button.removeEventListener("click", () => alert("1"));
+
+    button.onclick = () => alert(2);
+
+    //ОТВЕТ: Удаление обработчика не сработает. потому что функция передана безымянной стрелочной функцией, а должна быть именнованной.
+    //addEventListener и onclick сработают независимо друг от друга.
+
+  </script>
+
+</body>
+
+</html>

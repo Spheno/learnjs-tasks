@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style>
+    p:hover {
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+    }
+ 
+  </style>
+</head>
+
+<body>
+
+  <ul class="tree" id="tree">
+    <li>
+      <p>Животные</p>
+      <ul>
+        <li>
+          <p>Млекопитающие</p>
+          <ul>
+            <li>
+              <p>Коровы</p>
+            </li>
+            <li>
+              <p>Ослы</p>
+            </li>
+            <li>
+              <p>Собаки</p>
+            </li>
+            <li>
+              <p>Тигры</p>
+            </li>
+          </ul>
+        </li>
+        <li><p>Другие</p>
+          <ul>
+            <li><p>Змеи</p></li>
+            <li><p>Птицы</p></li>
+            <li><p>Ящерицы</p></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><p>Рыбы</p>
+      <ul>
+        <li><p>Аквариумные</p>
+          <ul>
+            <li><p>Гуппи</p></li>
+            <li><p>Скалярии</p></li>
+          </ul>
+        </li>
+        <li><p>Морские</p>
+          <ul>
+            <li><p>Морская форель</p></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    'use strict'
+
+const tree = document.querySelector('.tree');
+
+function clickTree(e) {
+  if (e.target.tagName == 'P') {
+    let children = e.target.parentNode.querySelector('ul')
+    if (!children) return
+    children.hidden = !children.hidden
+  }
+}
+
+tree.addEventListener('click', (e) => {clickTree(e)})
+
+  </script>
+
+</body>
+
+</html>

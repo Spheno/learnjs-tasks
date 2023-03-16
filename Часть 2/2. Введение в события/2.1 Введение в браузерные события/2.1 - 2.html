@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+  <input type="button" id="hider" value="Нажмите, чтобы спрятать" />
+
+  <script>
+    'use strict';
+
+    const button = document.querySelector('#hider');
+
+    function hidden() {
+      button.hidden = true;
+    }
+
+    button.addEventListener('click', hidden)
+
+  </script>
+
+</body>
+
+</html>

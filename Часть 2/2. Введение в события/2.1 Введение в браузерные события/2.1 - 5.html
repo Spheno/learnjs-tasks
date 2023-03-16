@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<style>
+.title {
+cursor: pointer;
+}
+.title::before {
+  content: '▶ ';
+  color: rosybrown;
+}
+.menu {
+  display: none;
+}
+.open.title::before {
+  content: '▼ ';
+}
+.menu.open {
+  display: block;
+}
+</style>
+<body>
+
+  <h1 class="title">Сладости (нажми меня)!</h1>
+  <ul class="menu">
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+  </ul>
+
+  <script>
+    'use strict'
+
+    const title = document.querySelector('.title');
+    const menu = document.querySelector('.menu');
+
+    function openMenu() {
+      title.classList.toggle('open');
+      menu.classList.toggle('open');
+    }
+
+    title.addEventListener('click', openMenu)
+
+
+  </script>
+
+</body>
+
+</html>
