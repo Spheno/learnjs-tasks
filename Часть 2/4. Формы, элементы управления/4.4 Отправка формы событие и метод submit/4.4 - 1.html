@@ -3,13 +3,143 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style>
+    html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height:3000px;
+}
+
+#prompt-form {
+  display: inline-block;
+  padding: 5px 5px 5px 70px;
+  width: 200px;
+  border: 1px solid black;
+  background: white url(https://en.js.cx/clipart/prompt.png) no-repeat left 5px;
+  vertical-align: middle;
+}
+
+#prompt-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#prompt-form-container:before {
+  display: inline-block;
+  height: 100%;
+  content: '';
+  vertical-align: middle;
+}
+
+#prompt-form input[name="text"] {
+  display: block;
+  margin: 5px;
+  width: 180px;
+}
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(200, 200, 200, .7);
+}
+.hidden {
+  display: none;
+}
+.overflow-not {
+  overflow-y: hidden;
+}
+  </style>
 </head>
 
 <body>
 
+  <h2>Кликните на кнопку ниже</h2>
+
+  <input type="button" value="Кликните, чтобы увидеть форму" id="show-button">
+
+  <div class="cover hidden">
+    <div id="prompt-form-container">
+      <form id="prompt-form">
+        <div id="prompt-message">Введите что-нибудь...
+          <br>Пожалуйста..</div>
+        <input name="text" type="text">
+        <input type="submit" name="'ok" value="Ok">
+        <input type="button" name="cancel" value="Отмена">
+      </form>
+    </div>
+  </div>
 
   <script>
     'use strict'
+
+    const buttonOpen = document.querySelector('#show-button');
+    const body = document.querySelector('body')
+    const popup = document.querySelector('.cover');
+    const buttonClose = document.querySelector('[name="cancel"]');
+    const buttonOk = document.querySelector('[name="ok"]');
+
+    function popupOpen() {
+      popup.classList.remove('hidden')
+      body.classList.add('overflow-not')
+    }
+
+    function popupClose() {
+      popup.classList.add('hidden')
+      body.classList.remove('overflow-not')
+    }
+
+    function showPrompt(html, callback) {
+      popupOpen()
+      const form = document.querySelector('#prompt-form');
+      const container = document.querySelector('#prompt-form-container');
+      document.querySelector('#prompt-message').innerHTML = html;
+      form.text.value = '';
+
+      function complete(value) {
+        popupClose()
+        document.onkeydown = null;
+        callback(value);
+      }
+
+      form.onsubmit = function() {
+        let value = form.text.value;
+        if (value == '') return false;
+
+        complete(value);
+        return false;
+      };
+
+      form.cancel.onclick = function() {
+        complete(null);
+      };
+
+      document.onkeydown = function(e) {
+        if (e.key == 'Escape') {
+          complete(null);
+        }
+      };
+
+      form.elements.text.focus();
+    }
+
+    buttonOpen.addEventListener('click', () => { showPrompt("Введите что-нибудь<br>...умное", function(value) {
+        alert("Вы ввели: " + value);
+      }) }
+      )
 
   </script>
 

@@ -3,15 +3,184 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style>
+    th {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    td {
+      width: 150px;
+      white-space: nowrap;
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px;
+    }
+
+    .nw {
+      background-color: #999;
+    }
+
+    .n {
+      background-color: #03f;
+      color: #fff;
+    }
+
+    .ne {
+      background-color: #ff6;
+    }
+
+    .w {
+      background-color: #ff0;
+    }
+
+    .c {
+      background-color: #60c;
+      color: #fff;
+    }
+
+    .e {
+      background-color: #09f;
+      color: #fff;
+    }
+
+    .sw {
+      background-color: #963;
+      color: #fff;
+    }
+
+    .s {
+      background-color: #f60;
+      color: #fff;
+    }
+
+    .se {
+      background-color: #0c3;
+      color: #fff;
+    }
+  </style>
 </head>
 
 <body>
 
+  <p>Кликните на ячейку таблицы, чтобы отредактировать её. Нажмите ОК или ОТМЕНА, когда закончите.</p>
 
-  <script>
-    'use strict'
+  <table id="bagua-table">
+    <tr>
+      <th colspan="3">Квадрат <em>Bagua</em>: Направление, Элемент, Цвет, Значение</th>
+    </tr>
+    <tr>
+      <td class="nw"><strong>Северо-Запад</strong>
+        <br>Металл
+        <br>Серебро
+        <br>Старейшины
+      </td>
+      <td class="n"><strong>Север</strong>
+        <br>Вода
+        <br>Синий
+        <br>Перемены
+      </td>
+      <td class="ne"><strong>Северо-Восток</strong>
+        <br>Земля
+        <br>Жёлтый
+        <br>Направление
+      </td>
+    </tr>
+    <tr>
+      <td class="w"><strong>Запад</strong>
+        <br>Металл
+        <br>Золото
+        <br>Молодость
+      </td>
+      <td class="c"><strong>Центр</strong>
+        <br>Всё
+        <br>Пурпурный
+        <br>Гармония
+      </td>
+      <td class="e"><strong>Восток</strong>
+        <br>Дерево
+        <br>Синий
+        <br>Будущее
+      </td>
+    </tr>
+    <tr>
+      <td class="sw"><strong>Юго-Запад</strong>
+        <br>Земля
+        <br>Коричневый
+        <br>Спокойствие
+      </td>
+      <td class="s"><strong>Юг</strong>
+        <br>Огонь
+        <br>Оранжевый
+        <br>Слава
+      </td>
+      <td class="se"><strong>Юго-Восток</strong>
+        <br>Дерево
+        <br>Зеленый
+        <br>Роман
+      </td>
+    </tr>
 
-  </script>
+
+    <script>
+      'use strict'
+
+      const table = document.getElementById('bagua-table');
+      let editingTd;
+
+      function editTable (e) {
+        let target = e.target.closest('.cancel, .ok, td')
+        if (table.contains(target)) {
+          if (target.className == 'cancel') {
+            finish(editingTd.elem, false)
+          }
+          if (target.className == 'ok') {
+            finish(editingTd.elem, true)
+          }
+          if ( target.nodeName == 'TD' ) {
+            if (!editingTd) {
+              makeEditable(target)
+            }
+          }
+        }
+      }
+
+      function makeEditable(td) {
+        editingTd = {
+          elem: td,
+          data: td.innerHTML
+        }
+
+        td.classList.add('edit-td');
+
+        let textarea = document.createElement('textarea');
+        textarea.style.width = td.clientWidth + 'px';
+        textarea.style.height = td.clientHeight + 'px';
+        textarea.className = 'edit';
+        textarea.value = td.innerHTML;
+        td.innerHTML = '';
+        td.appendChild(textarea);
+        textarea.focus()
+
+        const buttons = '<div class="edit-controls"><button class="ok">Ok</button><button class="cancel">Cancel</button></div>'
+
+        td.insertAdjacentHTML('beforeEnd', buttons);
+
+      }
+
+      function finish(td, isOk) {
+        if (isOk) {
+          td.innerHTML = td.firstChild.value;
+        } else {
+          td.innerHTML = editingTd.data
+        }
+        td.classList.remove('edit-td');
+        editingTd = null;
+      }
+
+      table.addEventListener('click', (e) => { editTable(e) })
+
+    </script>
 
 </body>
 

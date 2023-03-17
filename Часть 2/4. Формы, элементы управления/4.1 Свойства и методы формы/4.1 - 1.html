@@ -7,9 +7,22 @@
 
 <body>
 
+  <select id="genres">
+    <option value="rock">Рок</option>
+    <option value="blues" selected>Блюз</option>
+  </select>
 
   <script>
     'use strict'
+    const list = document.querySelector('#genres')
+
+    let selcted = list.options[list.selectedIndex];
+    alert(selcted.value)
+    alert(selcted.text)
+
+    let newOption = new Option('Классика', 'classic')
+    list.append(newOption)
+    newOption.selected = true;
 
   </script>
 
